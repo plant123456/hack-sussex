@@ -9,24 +9,21 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
 import categorypy as data
 
-problem_categories = ['family', 'special condition', 'medicine']
-train_data = data.dataframe()# get the training data this should be a list of the phrases and which category they are in
-train_values = pd.Series(train_data['Questions'])
-train_results = pd.Series(train_data['Category'])
-
-count_vec = CountVectorizer()
-bow = count_vec.fit_transform(train_values.values.astype('U'))
-bow = np.array(bow.todense())
-X = bow
-y = train_results
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, 
+def naive_bayes_hr(list_user_string):
+    problem_categories = ['family', 'special condition', 'medicine']
+    train_data = data.dataframe()# get the training data this should be a list of the phrases and which category they are in
+    train_values = pd.Series(train_data['Questions'])
+    train_results = pd.Series(train_data['Category'])
+    count_vec = CountVectorizer()
+    bow = count_vec.fit_transform(train_values.values.astype('U'))
+    bow = np.array(bow.todense())
+    X = bow
+    y = train_results
+    X_train, X_test, y_train, y_test = train_test_split(X, y, 
                                                     test_size=0.2, 
                                                     stratify=y)
+    model = MultinomialNB().fit(X_train, y_train)
+    X_new = count_vec.transform(list_user_string)
+    pred_new = model.predict(X_new)
+    return pred_new
 
-model = MultinomialNB().fit(X_train, y_train)
-
-y_pred = model.predict(X_test)
-
-print('Accuracy:', accuracy_score(y_test, y_pred))
-print('F1 score:', f1_score(y_test, y_pred, average="macro"))
