@@ -5,7 +5,6 @@ Overall
 from tkinter import *
 import pandas as pd
 import tkinter.ttk as ttk
-import nb_hr as predict_hr
 from nb_general import Model
 from chatbot import Chatbot
 from random import *
@@ -13,16 +12,13 @@ from random import *
 #import #chatbot created
 
 #create pandas dataframe
-data = {'user_id': [], 'problem statement': [], 'problem category': []}
+data = {'user_id': ['1'], 'problem statement': ['I have young children at home'], 'problem category': ['High risk']}
 data_to_show = pd.DataFrame(data)
 
 #create chatbot
 bot = Chatbot()
 sent_message = False
 
-#create model
-nb_model = Model()
-nb_model.naive_bayes()
 
 #create an instance of Chatbox
 root = Tk()
@@ -40,11 +36,13 @@ message_input.place(x=6, y=400, height=88, width=780)
 #list of user messages
 message_list = []
 
+global_category = ""
 
 # Create a button to send the message
 def send_message():
     message_text = message_input.get("1.0", END).strip()
     if message_text:
+        global general_category
         chat_history.config(state=NORMAL)
         chat_history.insert(END, "You: " + message_text + "\n")
         #chat_history.config(state=DISABLED)
@@ -88,31 +86,9 @@ responses = ['Is your Storage Heater, Boiler, Insulation or Heat Pump not workin
 #main loop
 print('ok2')
 def loop():
-    response_1 = bot.chat(message_list[0])
-
-    if len(response_1) > 0:
-        chat_history.insert(END, response_1)
-    else:
-        general_category = nb_model.pred(message_list)
-        if general_category == 'boiler heater':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[0]}')
-        elif general_category == 'thermostat':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[0]}')
-        elif general_category == 'supply':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[1]}')
-        elif general_category == 'meter':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[1]}')
-        elif general_category == 'account':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[2]}')
-        elif general_category == 'payment':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[3]}')
-        elif general_category == 'struggling to pay':
-            chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[4]}')
-        elif general_category == 'high risk':
-                data_to_show['user id'].append(randint())
-                data_to_show['problem statement'] = message_list[0]
-                data_to_show['problem category'] = general_category
-                chat_history.insert(END, 'Your problem has identified you as a Priority Risk customer')
+    response_1 = bot.chat(message_list[len(message_list)-1])
+                
+    chat_history.insert(END, f'Based on the topic of your problem here is the following advice \n {response_1}')
             
 
 # Disable editing in the chat history widget

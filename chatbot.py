@@ -13,7 +13,7 @@ class Chatbot:
           words4=["MyAccount", "personal details", "account details", "edf app"]
           words5=["payment", "payment due","recent payment", "refund", "Energy Bills", "Support Scheme", "Help with the Energy Bills Support Scheme"]
           words6=["Reduce energy costs", "energy costs", "Maximise household income", "household income", "Paying my bills", "Paying bills", "General debt advice", "debt"]
-          words7=["Illness","disability","mental health issue"]
+          words7=["Illness","disability","mental health issue", "medicine", "medical equipment"]
           words8=["child", "live with a child", "children", "live alone", "reached state pension age", "live alone or with others and have reached state pension age","disabled",
           "chronically ill state", "pension age or are disabled","pension age or are disabled", "pensionable age or are disabled","chronically ill or under 18 years old", 
           "under 18 years old", "medicine refrigerator problem", "medicine refrigerator", "elderly have problem reading their bills","elder", "elderly have problem with hearing on the phone",
@@ -42,8 +42,8 @@ class Chatbot:
              return(["Do you have any issue with Paying your bills or want to know to reduce energy costs/Maximize household income ?  You can visit our website https://www.edfenergy.com/for-home/help-support/help-centre to get relevant information on how to fix the issue."])
              flag=0
              break
-          elif re.compile('|'.join(words7),re.IGNORECASE).search(user_message):
-             return(["We are sorry to hear this. We'd like to offer our support and help. Although I am just a robot, we can assist you by encouraging you to seek professional help. You are eligible for our priority services. Please visit https://www.ofgem.gov.uk/information-consumers/energy-advice-households/getting-extra-help-priority-services-register to register. These are the resources: https://www.nhs.uk/nhs-services/mental-health-services/ . You can get in touch with them "])
+          elif re.compile('|'.join(words8),re.IGNORECASE).search(user_message):
+             return(["Your problem has identified you as a Priority Risk customer"])
             #elif re.compile('|'.join(words8),re.IGNORECASE).search(usermessage):
               #print("We are aware of your vulnereble circumstance, we'd like to help via these goverment resources. Please visit https://www.nhs.uk/conditions/social-care-and-support-guide/caring-for-children-and-young-people/.")      
         
