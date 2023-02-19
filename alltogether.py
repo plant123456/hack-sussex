@@ -6,7 +6,7 @@ from tkinter import *
 import pandas as pd
 import tkinter.ttk as ttk
 import nb_hr as predict_hr
-import nb_general as predict_general
+from nb_general import Model
 from chatbot import Chatbot
 from random import *
 
@@ -19,6 +19,10 @@ data_to_show = pd.DataFrame(data)
 #create chatbot
 bot = Chatbot()
 sent_message = False
+
+#create model
+nb_model = Model()
+nb_model.naive_bayes()
 
 #create an instance of Chatbox
 root = Tk()
@@ -89,7 +93,7 @@ def loop():
     if len(response_1) > 0:
         chat_history.insert(END, response_1)
     else:
-        general_category = predict_general.naive_bayes(message_list)
+        general_category = nb_model.pred(message_list)
         if general_category == 'boiler heater':
             chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[0]}')
         elif general_category == 'thermostat':
@@ -105,22 +109,11 @@ def loop():
         elif general_category == 'struggling to pay':
             chat_history.insert(END, f'Based on the topic of your problem here is the following advice {responses[4]}')
         elif general_category == 'high risk':
-            hr_category = predict_hr.naive_bayes_hr(message_list)
-            if hr_category == 'family': 
                 data_to_show['user id'].append(randint())
                 data_to_show['problem statement'] = message_list[0]
-                data_to_show['problem category'] = hr_category
+                data_to_show['problem category'] = general_category
                 chat_history.insert(END, 'Your problem has identified you as a Priority Risk customer')
-            elif hr_category == 'special_condition':
-                data_to_show['user id'].append(randint())
-                data_to_show['problem statement'] = message_list[0]
-                data_to_show['problem category'] = hr_category
-                chat_history.insert(END, 'Your problem has identified you as a Priority Risk customer')
-            elif hr_category == 'medicine':
-                data_to_show['user id'].append(randint())
-                data_to_show['problem statement'] = message_list[0]
-                data_to_show['problem category'] = hr_category
-                chat_history.insert(END, 'Your problem has identified you as a Priority Risk customer')
+            
 
 # Disable editing in the chat history widget
 chat_history.config(state=DISABLED)
