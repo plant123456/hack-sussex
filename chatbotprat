@@ -12,7 +12,7 @@ def chat():
     words2=["faulty thermostat", "damaged thermostat", "display thermostat","HeatSmart", "Netamo smart thermostat"]
     words3=["electricity supply","gas supply","new connection","new supply","supply disruption","electricity disruption","gas disruption"]
     words4=["MyAccount", "personal details", "account details", "edf app"]
-    words5=["payment", "payment due","recent payment", "refund", "Energy Bills", "Support Scheme", "Help with the Energy Bills Support Scheme"]
+    words5=["payment", "payment due","recent payment", "refund", "Energy Bills", "Support Scheme", "Help with the Energy Bills Support Scheme","credit card"]
     words6=["Reduce energy costs", "energy costs", "Maximise household income", "household income", "Paying my bills", "Paying bills", "General debt advice", "debt"]
     words7=["Illness","disability","mental health issue"]
     words8=["child", "live with a child", "children", "live alone", "reached state pension age", "live alone or with others and have reached state pension age","disabled",
