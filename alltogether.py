@@ -2,15 +2,19 @@
 """
 Overall
 """
-import Chatbox
-import naive_bayes_model
-import naive_bayes_high_risk
+#import Chatbox
+import pandas as pd
+#import naive_bayes_model
+#import naive_bayes_high_risk
 #import #chatbot created
 
-create pandas dataframe
-create an instance of Chatbox
+#create pandas dataframe
+data = {'user': [], 'problem statement': [], 'problem category': []}
+data_to_show = pd.DataFrame(data)
 
-in first textbox
+#create an instance of Chatbox
+
+'''in first textbox
 (
  Create an instance of chatbot
  get the chatbot to interact with the user 
@@ -27,5 +31,5 @@ in first textbox
  )  
 
 in second textbox:
-    show pandas dataframe
+    show pandas dataframe'''
     
