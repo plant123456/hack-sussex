@@ -4,8 +4,8 @@ Overall
 """
 #import Chatbox
 import pandas as pd
-#import naive_bayes_model
-#import naive_bayes_high_risk
+import naive_bayes_model
+import naive_bayes_high_risk
 #import #chatbot created
 
 #create pandas dataframe

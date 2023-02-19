@@ -27,7 +27,8 @@ def dataframe():
             'I live alone',
             'I am by myself',
             'I am chronically ill',
-            'I live with a vulnerable person'
+            'I live with a vulnerable person',
+            'I look after'
             ]
                        })
         
@@ -36,7 +37,7 @@ def dataframe():
                         
             ['family', 'special condition', 'special condition', 'special condition', 'special condition', 'special condition', 'family','family'
              'family','family','special condition', 'special condition', 'special condition', 'medicine', 'medicine', 'medicine', 'special condition',
-             'special condition', 'special condition', 'special condition', 'special condition', 'family', 'family', 'special condition', 'family',
+             'special condition', 'special condition', 'special condition', 'special condition', 'family', 'family', 'special condition', 'family', 'family'
              ]
                        })
 
