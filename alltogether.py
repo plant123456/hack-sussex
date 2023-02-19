@@ -5,11 +5,13 @@ Overall
 from tkinter import *
 import pandas as pd
 import tkinter.ttk as ttk
+import nb_hr as predict
+import chatbot as chat
 
 #import #chatbot created
 
 #create pandas dataframe
-data = {'user': [21,2], 'problem statement': [32,2], 'problem category': [1,3]}
+data = {'user_id': [], 'problem statement': [], 'problem category': []}
 data_to_show = pd.DataFrame(data)
 
 #create an instance of Chatbox
@@ -40,10 +42,6 @@ send_button = Button(message_input, text="Send", width="10", height=3,
                      command=send_message)
 send_button.place(relx=0.97, rely=0.97, anchor='se')
 
-# Create a new window to display data
-data_window = Toplevel(root)
-data_window.title("Data")
-data_window.geometry("400x200")
 
 # create a new window
 root = Tk()
@@ -61,7 +59,6 @@ scrollbar = ttk.Scrollbar(root, orient='vertical', command=tree.yview)
 tree.configure(yscroll=scrollbar.set)
 scrollbar.pack(side='right', fill='y')
 tree.pack(side='left', fill='both', expand=True)
-
 
 # Add some sample chat history
 chat_history.insert(END, "Chat Bot: Hi, how can I assist you today?\n")

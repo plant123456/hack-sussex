@@ -28,7 +28,14 @@ def dataframe():
             'I am by myself',
             'I am chronically ill',
             'I live with a vulnerable person',
-            'I look after'
+            'I look after',
+            'I am looking after elderly and children',
+            'I do not have family or friend',
+            'physical impairment and mobility issues'
+            'I cannot reach it very well',#
+            'I have a fridge in my bedroom which stores my IV drip and has to be kept at a particular temperature',
+            'I need large print',
+            'I have arthritis or multiple sclerosis and celebral palsy'
             ]
                        })
         
@@ -37,7 +44,8 @@ def dataframe():
                         
             ['family', 'special condition', 'special condition', 'special condition', 'special condition', 'special condition', 'family','family'
              'family','family','special condition', 'special condition', 'special condition', 'medicine', 'medicine', 'medicine', 'special condition',
-             'special condition', 'special condition', 'special condition', 'special condition', 'family', 'family', 'special condition', 'family', 'family'
+             'special condition', 'special condition', 'special condition', 'special condition', 'family', 'family', 'special condition', 'family', 'family',
+             'family', 'family', 'special condition', 'special condition', 'medicine', 'special condition', 'special condition'
              ]
                        })
 
