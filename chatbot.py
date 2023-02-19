@@ -3,7 +3,6 @@ import re
 flag=0
 class Chatbot:
     def __init__(self):
-        self.message = []
         self.intro = "Hello, I'm a chatbot. How can I help you?"
         
     def chat(self, user_message):
@@ -45,11 +44,8 @@ class Chatbot:
              break
           elif re.compile('|'.join(words7),re.IGNORECASE).search(user_message):
              return(["We are sorry to hear this. We'd like to offer our support and help. Although I am just a robot, we can assist you by encouraging you to seek professional help. You are eligible for our priority services. Please visit https://www.ofgem.gov.uk/information-consumers/energy-advice-households/getting-extra-help-priority-services-register to register. These are the resources: https://www.nhs.uk/nhs-services/mental-health-services/ . You can get in touch with them "])
-             break
             #elif re.compile('|'.join(words8),re.IGNORECASE).search(usermessage):
               #print("We are aware of your vulnereble circumstance, we'd like to help via these goverment resources. Please visit https://www.nhs.uk/conditions/social-care-and-support-guide/caring-for-children-and-young-people/.")      
-          else:
-             (self.message).append(user_message)
         
         
         

@@ -18,6 +18,7 @@ data_to_show = pd.DataFrame(data)
 
 #create chatbot
 bot = Chatbot()
+sent_message = False
 
 #create an instance of Chatbox
 root = Tk()
@@ -35,20 +36,18 @@ message_input.place(x=6, y=400, height=88, width=780)
 #list of user messages
 message_list = []
 
-sent_message = False
+
 # Create a button to send the message
 def send_message():
-    global sent_message
     message_text = message_input.get("1.0", END).strip()
     if message_text:
         chat_history.config(state=NORMAL)
         chat_history.insert(END, "You: " + message_text + "\n")
-        chat_history.config(state=DISABLED)
+        #chat_history.config(state=DISABLED)
         message_list.append(str(message_text))
         print(message_list)
         message_input.delete("1.0", END)
-        sent_message = True
-        print(sent_message)
+        loop()
     
 
 send_button = Button(message_input, text="Send", width="10", height=3,
@@ -56,20 +55,21 @@ send_button = Button(message_input, text="Send", width="10", height=3,
                      command=send_message)
 send_button.place(relx=0.97, rely=0.97, anchor='se')
 
+print('ok')
 
 # create a new window
-root = Tk()
-root.title("DataFrame Window")
+groot = Tk()
+groot.title("DataFrame Window")
 
-# create a TreeView widget to display the dataframe
-tree = ttk.Treeview(root, columns=list(data_to_show.columns), show='headings')
+#create a TreeView widget to display the dataframe
+tree = ttk.Treeview(groot, columns=list(data_to_show.columns), show='headings')
 for col in data_to_show.columns:
     tree.heading(col, text=col)
 for i, row in data_to_show.iterrows():
     tree.insert('', 'end', values=list(row))
 
 # add a scrollbar to the TreeView widget
-scrollbar = ttk.Scrollbar(root, orient='vertical', command=tree.yview)
+scrollbar = ttk.Scrollbar(groot, orient='vertical', command=tree.yview)
 tree.configure(yscroll=scrollbar.set)
 scrollbar.pack(side='right', fill='y')
 tree.pack(side='left', fill='both', expand=True)
@@ -82,8 +82,8 @@ responses = ['Is your Storage Heater, Boiler, Insulation or Heat Pump not workin
              "Do you have any issue with Payments, Refunds, Energy Bills or want to know about Support Scheme?  You can visit our website https://www.edfenergy.com/for-home/help-support/help-centre to get relevant information on how to fix the issue.",
              "Do you have any issue with Paying your bills or want to know to reduce energy costs/Maximize household income ?  You can visit our website https://www.edfenergy.com/for-home/help-support/help-centre to get relevant information on how to fix the issue."]
 #main loop
-if (sent_message == True):
-    print(sent_message)
+print('ok2')
+def loop():
     response_1 = bot.chat(message_list[0])
 
     if len(response_1) > 0:
@@ -140,6 +140,5 @@ scrollbar.place(x=788, y=5, height=385)
 #End of chatbox creation
 
 #words
-
 
 root.mainloop()
