@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import f1_score
 import categorypy as data
 
-problem_categories = ['family', 'special condition', 'medicine']
+problem_categories = ['boiler heater', 'thermostat', 'supply', 'meter', 'account', 'payment', 'struggling to pay', 'high risk']
 train_data = data.dataframe()# get the training data this should be a list of the phrases and which category they are in
 train_values = pd.Series(train_data['Questions'])
 train_results = pd.Series(train_data['Category'])
